@@ -33,3 +33,16 @@ latest code formatters and linters.
    anything and makes the update fail)
 1. Update your code `pre-commit run -a`
 1. Commit: `git commit -am 'Run pre-commit'`
+
+## Notes for template maintainers
+
+This template is self-applied, but due to 🐔+🥚 problems, to update it, this must be
+done manually:
+
+```bash
+cd autopretty
+copier -a .copier-answers.autopretty.upstream.yml -f -d js=false -d protected_branches=[main] . .
+mv -f .github/workflows/pre-commit.yml .github/workflows/pre-commit.upstream.yml
+```
+
+Not so nice, but neither so hard.
