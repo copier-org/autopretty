@@ -9,8 +9,7 @@ trim_trailing_whitespace = true
 insert_final_newline = true
 
 [*.py]
-# For isort
-profile = black
+profile = black # For isort
 
 [*.{code-snippets,code-workspace,json,yaml,yml}{,.jinja}]
 indent_size = 2

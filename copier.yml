@@ -42,7 +42,9 @@ biggest_kbs:
 protected_branches:
   default: [main, master]
   type: yaml
-  help: Protected branches where you will not be able to do direct commits. Set to null to disable. Otherwise, it's an array of strings.
+  help:
+    Protected branches where you will not be able to do direct commits. Set to null to
+    disable. Otherwise, it's an array of strings.
 
 github:
   default: true
