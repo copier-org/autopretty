@@ -13,8 +13,9 @@ _answers_file: .copier-answers.autopretty.yml
 
 _exclude:
   - /.git
-  - .cfg
-  - .toml
+  - /.github
+  - LICENSE
+  - README.md
 
 # Questions
 python:

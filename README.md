@@ -14,7 +14,7 @@ Thus, here's autopretty. It uses [Copier][] to keep your projects updated with t
 1. [Install pre-commit](https://pre-commit.com/#install)
 1. Enter your project folder: `cd my-project`
 1. Make it a git repo: `git init`
-1. Run `copier copy https://github.com/copier-org/autopretty.git`
+1. Run `copier copy https://github.com/copier-org/autopretty.git .`
 1. Answer questions
 1. Activate pre-commit: `pre-commit install`
 1. Commit: `git commit -am 'Apply autoprettier'` (repeat if pre-commit reformats anything and makes the update fail)
