@@ -1,0 +1,55 @@
+# Configure jinja2 defaults to make syntax highlighters lives easier
+_templates_suffix: .jinja
+_envops:
+  block_end_string: "%}"
+  block_start_string: "{%"
+  comment_end_string: "#}"
+  comment_start_string: "{#"
+  keep_trailing_newline: true
+  variable_end_string: "}}"
+  variable_start_string: "{{"
+
+# This template is just a complement, so we better use a different default answers file
+_answers_file: .copier-answers.autopretty.yml
+
+_exclude:
+  - /.git
+  - /.github
+  - /copier.yml
+  - LICENSE
+  - README.md
+
+# Questions
+python:
+  default: true
+  type: bool
+  help: Will your project use Python 3.6 or later?
+
+js:
+  default: true
+  type: bool
+  help: Will you use JavaScript?
+
+ansible:
+  default: false
+  type: bool
+  help: Will you use Ansible?
+
+biggest_kbs:
+  default: 1000
+  type: int
+  help: Max file size allowed in this repo? In KiBs. Set to 0 to disable.
+
+protected_branches:
+  default: [main, master]
+  type: yaml
+  help:
+    Protected branches where you will not be able to do direct commits. Set to null to
+    disable. Otherwise, it's an array of strings.
+
+github:
+  default: true
+  type: bool
+  help: Create configurations specific to GitHub?
+
+    This includes a workflow to check code, issue and PR templates...
