@@ -6,7 +6,7 @@ on:
     branches:
     {%- for branch in protected_branches or ["main"] %}
       - {{ branch }}
-    {%- enfor %}
+    {%- endfor %}
 
 jobs:
   pre-commit:
