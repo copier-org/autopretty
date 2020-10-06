@@ -13,8 +13,8 @@ _envops:
 _answers_file: .copier-answers.autopretty.yml
 
 _exclude:
+  - "*.upstream.*"
   - /.git
-  - /.github
   - /copier.yml
   - LICENSE
   - README.md
