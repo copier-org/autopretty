@@ -9,6 +9,7 @@ _envops:
   variable_end_string: "}}"
   variable_start_string: "{{"
 
+# This template is just a complement, so we better use a different default answers file
 _answers_file: .copier-answers.autopretty.yml
 
 _exclude:
