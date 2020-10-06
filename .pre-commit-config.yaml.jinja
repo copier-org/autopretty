@@ -114,15 +114,8 @@ repos:
     rev: v0.1.2
     hooks:
       - id: encryption-check
-  - repo: https://github.com/pre-commit/pre-commit-hooks
+  - repo: https://github.com/ansible/ansible-lint
     rev: v4.3.5
     hooks:
-      - id: check-case-conflict
-      - id: check-executables-have-shebangs
-      - id: check-merge-conflict
-      - id: check-symlinks
-      - id: end-of-file-fixer
-      - id: mixed-line-ending
-        args: ["--fix=lf"]
-      - id: trailing-whitespace
+      - id: ansible-lint
 {%- endif %}
