@@ -14,6 +14,7 @@ _answers_file: .copier-answers.autopretty.yml
 _exclude:
   - /.git
   - /.github
+  - /copier.yml
   - LICENSE
   - README.md
 
@@ -27,6 +28,11 @@ js:
   default: true
   type: bool
   help: Will you use JavaScript?
+
+ansible:
+  default: false
+  type: bool
+  help: Will you use Ansible?
 
 biggest_kbs:
   default: 1000
