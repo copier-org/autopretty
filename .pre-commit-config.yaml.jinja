@@ -52,11 +52,12 @@ repos:
   {#- Prettier is considered general because it reformats Markdown, YAML and XML
      (with the activated plugin), which are too common as to ask the user,
      although it's true that it will also format JS, HTML, CSS and others #}
-  - repo: https://github.com/prettier/prettier
-    rev: 2.1.2
+  - repo: https://github.com/pre-commit/mirrors-prettier
+    rev: v2.1.2
     hooks:
       - id: prettier
         additional_dependencies:
+          - prettier@2.1.2
           - "@prettier/plugin-xml@0.12.0"
         args:
           - --plugin=@prettier/plugin-xml
