@@ -10,45 +10,6 @@ repos:
         entry: found forbidden files; remove them
         language: fail
         files: "\\.rej$"
-  - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v3.2.0
-    hooks:
-    {%- if biggest_kbs %}
-      - id: check-added-large-files
-        args:
-          - --maxkb={{ biggest_kbs }}
-    {%- endif %}
-      - id: check-case-conflict
-      - id: check-executables-have-shebangs
-      - id: check-json
-      - id: check-merge-conflict
-      - id: check-symlinks
-      - id: check-toml
-      - id: check-xml
-      - id: check-yaml
-      - id: detect-private-key
-      - id: end-of-file-fixer
-      - id: mixed-line-ending
-        args:
-          - --fix=lf
-    {%- if protected_branches %}
-      - id: no-commit-to-branch
-        args:
-        {%- for branch in protected_branches %}
-          - --branch={{ branch }}
-        {%- endfor %}
-    {%- endif %}
-      - id: trailing-whitespace
-    {%- if python %}
-      - id: check-ast
-      - id: check-builtin-literals
-      - id: check-docstring-first
-      - id: debug-statements
-      - id: fix-encoding-pragma
-        args:
-          - --remove
-      - id: requirements-txt-fixer
-    {%- endif %}
   {#- Prettier is considered general because it reformats Markdown, YAML and XML
      (with the activated plugin), which are too common as to ask the user,
      although it's true that it will also format JS, HTML, CSS and others #}
@@ -123,3 +84,42 @@ repos:
     hooks:
       - id: ansible-lint
 {%- endif %}
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v3.2.0
+    hooks:
+    {%- if biggest_kbs %}
+      - id: check-added-large-files
+        args:
+          - --maxkb={{ biggest_kbs }}
+    {%- endif %}
+      - id: check-case-conflict
+      - id: check-executables-have-shebangs
+      - id: check-json
+      - id: check-merge-conflict
+      - id: check-symlinks
+      - id: check-toml
+      - id: check-xml
+      - id: check-yaml
+      - id: detect-private-key
+      - id: end-of-file-fixer
+      - id: mixed-line-ending
+        args:
+          - --fix=lf
+    {%- if protected_branches %}
+      - id: no-commit-to-branch
+        args:
+        {%- for branch in protected_branches %}
+          - --branch={{ branch }}
+        {%- endfor %}
+    {%- endif %}
+      - id: trailing-whitespace
+    {%- if python %}
+      - id: check-ast
+      - id: check-builtin-literals
+      - id: check-docstring-first
+      - id: debug-statements
+      - id: fix-encoding-pragma
+        args:
+          - --remove
+      - id: requirements-txt-fixer
+    {%- endif %}
