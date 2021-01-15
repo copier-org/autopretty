@@ -4,7 +4,7 @@ on:
   pull_request:
   push:
     branches:
-    {%- for branch in protected_branches or ["main", "master"] %}
+    {%- for branch in main_branches or ["main", "master"] %}
       - {{ branch }}
     {%- endfor %}
 

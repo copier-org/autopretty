@@ -35,7 +35,7 @@ biggest_kbs:
   type: int
   help: Max file size allowed in this repo? In KiBs. Set to 0 to disable.
 
-protected_branches:
+main_branches:
   default: [main, master]
   type: yaml
   help:

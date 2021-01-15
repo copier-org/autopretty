@@ -105,13 +105,6 @@ repos:
       - id: mixed-line-ending
         args:
           - --fix=lf
-    {%- if protected_branches %}
-      - id: no-commit-to-branch
-        args:
-        {%- for branch in protected_branches %}
-          - --branch={{ branch }}
-        {%- endfor %}
-    {%- endif %}
       - id: trailing-whitespace
     {%- if python %}
       - id: check-ast
