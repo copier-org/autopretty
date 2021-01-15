@@ -19,6 +19,14 @@ repos:
           - "@prettier/plugin-xml@0.12.0"
         args:
           - --plugin=@prettier/plugin-xml
+  - repo: https://github.com/pre-commit/mirrors-eslint
+    rev: v7.8.1
+    hooks:
+      - id: eslint
+        verbose: true
+        args:
+          - --color
+          - --fix
   - repo: https://github.com/myint/autoflake
     rev: v1.4
     hooks:
@@ -59,6 +67,14 @@ repos:
           # ignore unused imports in __init__.py
           - --extend-ignore=F401
         files: /__init__\.py$
+  - repo: https://github.com/IamTheFij/ansible-pre-commit
+    rev: v0.1.2
+    hooks:
+      - id: encryption-check
+  - repo: https://github.com/ansible/ansible-lint
+    rev: v4.3.5
+    hooks:
+      - id: ansible-lint
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v3.2.0
     hooks:
