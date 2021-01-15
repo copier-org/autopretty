@@ -41,7 +41,7 @@ done manually:
 
 ```bash
 cd autopretty
-copier -a .copier-answers.autopretty.upstream.yml -f -d js=false -d protected_branches=[main] . .
+copier -a .copier-answers.autopretty.upstream.yml -f -d js=false -d main_branches=[main] . .
 mv -f .github/workflows/pre-commit.yml .github/workflows/pre-commit.upstream.yml
 ```
 
