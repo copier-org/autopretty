@@ -36,13 +36,22 @@ latest code formatters and linters.
 
 ## Notes for template maintainers
 
-This template is self-applied, but due to 🐔+🥚 problems, to update it, this must be
-done manually:
+This template is self-applied, and as you can imagine, there are some 🐔+🥚 situations.
 
-```bash
-cd autopretty
-copier -a .copier-answers.autopretty.upstream.yml -f -d js=false -d main_branches=[main] . .
-mv -f .github/workflows/pre-commit.yml .github/workflows/pre-commit.upstream.yml
-```
+To update it:
 
-Not so nice, but neither so hard.
+1. Publish a new release on Github
+1. `git fetch --tags`
+1. `copier -a .copier-answers.autopretty.yml --prereleases update`
+
+In case you want to self-test a new release locally:
+
+1. `git tag v0.1.0a99` ... or the version that you will release.
+1. `copier -a .copier-answers.autopretty.yml --prereleases update`
+1. Once you're happy: `git tag -d v0.1.0a99`
+1. Open PR.
+1. Merge it.
+1. Release.
+1. Do the proper update.
+
+At some point, this should be automated easily.
