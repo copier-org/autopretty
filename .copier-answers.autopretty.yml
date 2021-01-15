@@ -1,10 +1,10 @@
 # Changes here will be overwritten by Copier; do NOT edit manually
-_commit: v0.1.0a7
+_commit: v0.1.0a8
 _src_path: .
 ansible: true
 biggest_kbs: 1000
 github: true
 js: true
-protected_branches:
+main_branches:
   - main
 python: true
