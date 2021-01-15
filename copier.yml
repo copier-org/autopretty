@@ -1,3 +1,5 @@
+_subdirectory: src
+
 # Configure jinja2 defaults to make syntax highlighters lives easier
 _templates_suffix: .jinja
 _envops:
@@ -11,13 +13,6 @@ _envops:
 
 # This template is just a complement, so we better use a different default answers file
 _answers_file: .copier-answers.autopretty.yml
-
-_exclude:
-  - "*.upstream.*"
-  - /.git
-  - /copier.yml
-  - LICENSE
-  - README.md
 
 # Questions
 python:
