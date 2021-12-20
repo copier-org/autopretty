@@ -25,6 +25,11 @@ js:
   type: bool
   help: Will you use JavaScript?
 
+terraform:
+  default: false
+  type: bool
+  help: Will you use Terraform?
+
 ansible:
   default: false
   type: bool
