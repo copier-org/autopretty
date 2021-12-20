@@ -74,6 +74,18 @@ repos:
           - --extend-ignore=F401
         files: /__init__\.py$
 {%- endif %}
+{%- if terraform %}
+  - repo: https://github.com/aquasecurity/tfsec
+    rev: v0.63.1
+    hooks:
+      - id: tfsec
+  - repo: https://github.com/antonbabenko/pre-commit-terraform
+    rev: v1.62.1
+    hooks:
+      - id: terraform_fmt
+      - id: terraform_providers_lock
+      - id: terraform_validate
+{%- endif %}
 {%- if ansible %}
   - repo: https://github.com/IamTheFij/ansible-pre-commit
     rev: v0.1.2
