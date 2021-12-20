@@ -79,6 +79,10 @@ repos:
           # ignore unused imports in __init__.py
           - --extend-ignore=F401
         files: /__init__\.py$
+  - repo: https://github.com/PyCQA/pydocstyle
+    rev: 6.1.1
+    hooks:
+      - id: pydocstyle
 {%- endif %}
 {%- if terraform %}
   - repo: https://github.com/aquasecurity/tfsec
