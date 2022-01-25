@@ -1,0 +1,2 @@
+skip_list:
+  - yaml  # Violations reported by yamllint; we have prettier for that
