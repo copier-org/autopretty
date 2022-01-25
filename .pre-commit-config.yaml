@@ -19,6 +19,8 @@ repos:
           - "@prettier/plugin-xml@1.2.0"
         args:
           - --plugin=@prettier/plugin-xml
+        # TODO Drop when fixed https://github.com/prettier/prettier/issues/12143
+        exclude: "%"
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v4.1.0
     hooks:
