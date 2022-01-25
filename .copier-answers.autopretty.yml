@@ -1,10 +1,11 @@
 # Changes here will be overwritten by Copier; do NOT edit manually
-_commit: v0.1.0a8
+_commit: v0.2.1-1-g886ab6a
 _src_path: .
-ansible: true
+ansible: false
 biggest_kbs: 1000
 github: true
-js: true
+js: false
 main_branches:
   - main
-python: true
+python: false
+terraform: false
