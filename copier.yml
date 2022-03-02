@@ -14,11 +14,25 @@ _envops:
 # This template is just a complement, so we better use a different default answers file
 _answers_file: .copier-answers.autopretty.yml
 
+# Add --dev dependencies for poetry env
+_tasks:
+  - "{% if python and poetry_local_hooks %}poetry add --dev autoflake pyupgrade black
+    blacken-docs isort flake8 flake8-bugbear pydocstyle[toml]{% else %}true{% endif %}"
+
 # Questions
 python:
   default: true
   type: bool
   help: Will your project use Python 3.6 or later?
+
+poetry_local_hooks:
+  default: false
+  type: bool
+  when: "{{ python }}"
+  help: Do you prefer to run local hooks prefixed with `poetry run`?
+
+    In this case, you are supposed to maintain these dependencies locally using `poetry
+    add --dev`. Provides better integration with IDEs and Dependabot.
 
 js:
   default: true
