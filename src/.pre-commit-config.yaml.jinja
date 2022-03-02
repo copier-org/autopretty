@@ -33,6 +33,86 @@ repos:
           - --fix
 {%- endif %}
 {%- if python %}
+{%- if poetry_local_hooks %}
+{# These hooks are copied from their respective origins in the next section,
+   but configured to be executed with `poetry run`, to get better integration #}
+  - repo: local
+    hooks:
+      - id: autoflake
+        name: autoflake
+        entry: poetry run autoflake
+        language: python
+        types: [python]
+        require_serial: true
+        args:
+          - --in-place
+          - --expand-star-imports
+          - --ignore-init-module-imports
+          - --remove-all-unused-imports
+          - --remove-duplicate-keys
+          - --remove-unused-variables
+      - id: pyupgrade
+        name: pyupgrade
+        description: Automatically upgrade syntax for newer versions.
+        entry: poetry run pyupgrade
+        language: python
+        types: [python]
+      - id: black
+        name: black
+        description: "Black: The uncompromising Python code formatter"
+        entry: poetry run black
+        language: python
+        minimum_pre_commit_version: 2.9.2
+        require_serial: true
+        types_or: [python, pyi]
+      - id: blacken-docs
+        name: blacken-docs
+        description: Run `black` on python code blocks in documentation files
+        entry: poetry run blacken-docs
+        language: python
+        language_version: python3
+        files: '\.(rst|md|markdown|py|tex)$'
+      - id: isort
+        name: isort
+        entry: poetry run isort
+        require_serial: true
+        language: python
+        language_version: python3
+        types_or: [cython, pyi, python]
+        minimum_pre_commit_version: '2.9.2'
+        args:
+          - --filter-files
+          - --settings=.
+      - &flake8
+        id: flake8
+        name: flake8 except __init__.py
+        description: '`flake8` is a command-line utility for enforcing style consistency across Python projects.'
+        entry: poetry run flake8
+        language: python
+        types: [python]
+        require_serial: true
+        exclude: /__init__\.py$
+      - <<: *flake8
+        name: flake8 for __init__.py
+        args:
+          # ignore unused imports in __init__.py
+          - --extend-ignore=F401
+        files: /__init__\.py$
+      - id: pydocstyle
+        name: pydocstyle
+        description: pydocstyle is a static analysis tool for checking compliance with Python docstring conventions.
+        entry: poetry run pydocstyle
+        language: python
+        types: [python]
+      - id: poetry-check
+        name: poetry-check
+        description: run poetry check to validate config
+        entry: poetry check
+        language: python
+        language_version: python3
+        pass_filenames: false
+        files: ^pyproject.toml$
+{%- else %}
   - repo: https://github.com/myint/autoflake
     rev: v1.4
     hooks:
@@ -83,6 +163,8 @@ repos:
     rev: 6.1.1
     hooks:
       - id: pydocstyle
+        additional_dependencies: [".[toml]"]
+{%- endif %}
 {%- endif %}
 {%- if terraform %}
   - repo: https://github.com/aquasecurity/tfsec
