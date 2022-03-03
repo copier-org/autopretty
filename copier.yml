@@ -17,7 +17,8 @@ _answers_file: .copier-answers.autopretty.yml
 # Add --dev dependencies for poetry env
 _tasks:
   - "{% if python and poetry_local_hooks %}poetry add --dev autoflake pyupgrade black
-    blacken-docs isort flake8 flake8-bugbear pydocstyle[toml]{% else %}true{% endif %}"
+    blacken-docs isort flake8 flake8-bugbear pydocstyle[toml] || true{% else %}true{%
+    endif %}"
 
 # Questions
 python:
