@@ -41,7 +41,7 @@ repos:
       - id: autoflake
         name: autoflake
         entry: poetry run autoflake
-        language: python
+        language: system
         types: [python]
         require_serial: true
         args:
@@ -55,13 +55,13 @@ repos:
         name: pyupgrade
         description: Automatically upgrade syntax for newer versions.
         entry: poetry run pyupgrade
-        language: python
+        language: system
         types: [python]
       - id: black
         name: black
         description: "Black: The uncompromising Python code formatter"
         entry: poetry run black
-        language: python
+        language: system
         minimum_pre_commit_version: 2.9.2
         require_serial: true
         types_or: [python, pyi]
@@ -69,15 +69,13 @@ repos:
         name: blacken-docs
         description: Run `black` on python code blocks in documentation files
         entry: poetry run blacken-docs
-        language: python
-        language_version: python3
+        language: system
         files: '\.(rst|md|markdown|py|tex)$'
       - id: isort
         name: isort
         entry: poetry run isort
         require_serial: true
-        language: python
-        language_version: python3
+        language: system
         types_or: [cython, pyi, python]
         minimum_pre_commit_version: '2.9.2'
         args:
@@ -88,7 +86,7 @@ repos:
         name: flake8 except __init__.py
         description: '`flake8` is a command-line utility for enforcing style consistency across Python projects.'
         entry: poetry run flake8
-        language: python
+        language: system
         types: [python]
         require_serial: true
         exclude: /__init__\.py$
@@ -102,14 +100,13 @@ repos:
         name: pydocstyle
         description: pydocstyle is a static analysis tool for checking compliance with Python docstring conventions.
         entry: poetry run pydocstyle
-        language: python
+        language: system
         types: [python]
       - id: poetry-check
         name: poetry-check
         description: run poetry check to validate config
         entry: poetry check
-        language: python
-        language_version: python3
+        language: system
         pass_filenames: false
         files: ^pyproject.toml$
 {%- else %}
