@@ -185,6 +185,12 @@ repos:
     hooks:
       - id: ansible-lint
 {%- endif %}
+{%- if nix %}
+  - repo: https://github.com/nix-community/nixpkgs-fmt
+    rev: v1.2.0
+    hooks:
+      - id: nixpkgs-fmt
+{%- endif %}
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v4.1.0
     hooks:

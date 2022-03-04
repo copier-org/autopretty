@@ -45,6 +45,11 @@ terraform:
   type: bool
   help: Will you use Terraform?
 
+nix:
+  default: false
+  type: bool
+  help: Will you use Nix?
+
 ansible:
   default: false
   type: bool
