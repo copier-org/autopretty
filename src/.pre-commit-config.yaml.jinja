@@ -21,6 +21,7 @@ repos:
     rev: v2.5.1
     hooks:
       - id: prettier
+        stages: [commit]
         additional_dependencies:
           - prettier@2.5.1
           - "@prettier/plugin-xml@1.2.0"
@@ -113,6 +114,16 @@ repos:
         language: system
         pass_filenames: false
         files: ^pyproject.toml$
+    {%- if commitizen %}
+      - id: commitizen
+        name: commitizen check
+        description: "Check whether the commit message follows commiting rules"
+        entry: poetry run cz check --commit-msg-file
+        language: system
+        require_serial: true
+        stages: [commit-msg]
+        minimum_pre_commit_version: "0.15.4"
+    {%- endif %}
 {%- else %}
   - repo: https://github.com/myint/autoflake
     rev: v1.4
@@ -228,3 +239,10 @@ repos:
           - --remove
       - id: requirements-txt-fixer
     {%- endif %}
+{%- if commitizen and not poetry_local_hooks %}
+  - repo: https://github.com/commitizen-tools/commitizen
+    rev: v2.21.2
+    hooks:
+      - id: commitizen
+        stages: [commit-msg]
+{%- endif %}
