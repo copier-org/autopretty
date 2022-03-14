@@ -1,11 +1,14 @@
 # Changes here will be overwritten by Copier; do NOT edit manually
-_commit: v0.2.1-1-g886ab6a
+_commit: v0.4.1-4-g1c1b32a
 _src_path: .
 ansible: false
 biggest_kbs: 1000
+commitizen: true
 github: true
 js: false
 main_branches:
   - main
+nix: false
+poetry_local_hooks: false
 python: false
 terraform: false

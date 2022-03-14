@@ -1,6 +1,10 @@
 default_language_version:
   python: python3
   node: "14.14.0"
+exclude: |
+  (?x)
+  # Files that fail if changed manually
+  .*\.(diff|patch)$
 repos:
   # General
   - repo: local
@@ -14,6 +18,7 @@ repos:
     rev: v2.5.1
     hooks:
       - id: prettier
+        stages: [commit]
         additional_dependencies:
           - prettier@2.5.1
           - "@prettier/plugin-xml@1.2.0"
@@ -35,9 +40,15 @@ repos:
       - id: check-toml
       - id: check-xml
       - id: check-yaml
+        exclude: gitlab-ci
       - id: detect-private-key
       - id: end-of-file-fixer
       - id: mixed-line-ending
         args:
           - --fix=lf
       - id: trailing-whitespace
+  - repo: https://github.com/commitizen-tools/commitizen
+    rev: v2.21.2
+    hooks:
+      - id: commitizen
+        stages: [commit-msg]
