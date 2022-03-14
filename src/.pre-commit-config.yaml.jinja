@@ -1,6 +1,10 @@
 default_language_version:
   python: python3
   node: "14.14.0"
+exclude: |
+  (?x)
+  # Files that fail if changed manually
+  .*\.(diff|patch)$
 repos:
   # General
   - repo: local
