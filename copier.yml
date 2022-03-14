@@ -19,6 +19,7 @@ _tasks:
   - "{% if python and poetry_local_hooks %}poetry add --dev autoflake pyupgrade black
     blacken-docs isort flake8 flake8-bugbear pydocstyle[toml] {% if commitizen
     %}commitizen{% endif %} || true{% else %}true{% endif %}"
+  - pre-commit install -t pre-commit -t commit-msg || true
 
 # Questions
 python:
