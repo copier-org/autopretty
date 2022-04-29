@@ -39,8 +39,8 @@ repos:
 {%- endif %}
 {%- if python %}
 {%- if poetry_local_hooks %}
-{# These hooks are copied from their respective origins in the next section,
-   but configured to be executed with `poetry run`, to get better integration #}
+{#- These hooks are copied from their respective origins in the next section,
+    but configured to be executed with `poetry run`, to get better integration #}
   - repo: local
     hooks:
       - id: autoflake
